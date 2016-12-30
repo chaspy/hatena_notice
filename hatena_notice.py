@@ -57,9 +57,9 @@ def tweet_extract(reserve):
     for art in reserve:
         date = art[1].strftime('%m/%d')
         
-        text += "%s:%s" % (date,art[0])
-        if len(text) > 140:
+        if len(text) + len(art[0]) > 140:
             break
+        text += "%s:%s" % (date,art[0])
     return text
 
 def token_init():
